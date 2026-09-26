@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trường Đại Học Nguyễn Trãi (NTU) - Trợ Lý AI Đồng Hành & Tư Vấn Học Tập Sinh Viên</title>
+  <meta name="description" content="Nền tảng Chatbot AI Đồng Hành & Hỗ Trợ Học Tập Trực Tuyến - Trường Đại Học Nguyễn Trãi (NTU). Cố vấn học thuật chuyên sâu 10 ngành đào tạo ứng dụng quốc tế và giải đáp mọi câu hỏi tri thức.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <a href="/" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <span>Đại Học <span style="font-weight: 800;">Nguyễn Trãi</span></span>
+      <span class="brand-badge">NTU AI</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link active"><i class="fas fa-home"></i> Trang Chủ</a></li>
+      <li><a href="/chat" class="nav-link"><i class="fas fa-robot"></i> Chatbot AI Học Tập</a></li>
+      <li><a href="/study-plan" class="nav-link"><i class="fas fa-calendar-check"></i> Lộ Trình Học Tập</a></li>
+      <li><a href="/admin" class="nav-link"><i class="fas fa-shield-alt"></i> Quản Trị NTU</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn btn-icon theme-toggle-btn" title="Chuyển đổi giao diện Sáng / Tối">
+        <i class="fas fa-sun"></i>
+      </button>
+      <div id="navbar-auth-actions" style="display: flex; gap: 0.6rem;">
+        <a href="/login" class="btn btn-secondary btn-sm"><i class="fas fa-sign-in-alt"></i> Đăng Nhập</a>
+        <a href="/register" class="btn btn-primary btn-sm"><i class="fas fa-user-plus"></i> Đăng Ký</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section">
+    <div class="container">
+      
+      <!-- Academic Badge -->
+      <span class="badge badge-primary" style="margin-bottom: 1.25rem;">
+        <i class="fas fa-university"></i> TRƯỜNG ĐẠI HỌC NGUYỄN TRÃI (NTU)
+      </span>
+
+      <!-- Title & Headline -->
+      <h1 class="hero-title">
+        Trợ Lý AI Đồng Hành & <br>
+        <span class="text-gradient">Tư Vấn Học Tập Sinh Viên NTU</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Khám phá môi trường học tập ứng dụng chuẩn quốc tế, cố vấn học thuật chuyên sâu 10 ngành đào tạo trọng điểm, hỗ trợ giải bài tập, viết code, giải toán, dịch thuật và thiết lập lộ trình ôn thi bứt phá cùng Trí tuệ nhân tạo.
+      </p>
+
+      <!-- Hero Call-To-Action Buttons -->
+      <div class="hero-buttons">
+        <a href="/chat" class="btn btn-primary btn-lg">
+          <i class="fas fa-comments"></i> Bắt Đầu Trò Chuyện Cùng AI NTU
+        </a>
+        <a href="/study-plan" class="btn btn-secondary btn-lg">
+          <i class="fas fa-calendar-alt"></i> Thiết Lập Lộ Trình Học Tập
+        </a>
+        <a href="/login" class="btn btn-secondary btn-lg" onclick="event.preventDefault(); quickDemoLogin('student');">
+          <i class="fas fa-user-check"></i> 1-Click Demo Sinh Viên
+        </a>
+      </div>
+
+      <!-- Quick Stats Strip -->
+      <div style="display: flex; justify-content: center; gap: 1.25rem; margin-top: 3rem; flex-wrap: wrap;">
+        <div class="card" style="padding: 1rem 1.75rem; min-width: 160px; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;">10+</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Ngành Đào Tạo Trọng Điểm</div>
+        </div>
+        <div class="card" style="padding: 1rem 1.75rem; min-width: 160px; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;">24/7</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Cố Vấn Học Tập Trực Tuyến</div>
+        </div>
+        <div class="card" style="padding: 1rem 1.75rem; min-width: 160px; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;">100%</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Gắn Kết Doanh Nghiệp</div>
+        </div>
+        <div class="card" style="padding: 1rem 1.75rem; min-width: 160px; text-align: center;">
+          <div style="font-size: 1.8rem; font-weight: 800;">< 1.0s</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600;">Tốc Độ Phản Hồi AI</div>
+        </div>
+      </div>
+
+      <!-- ================= 10 MAJORS SHOWCASE ================= -->
+      <div style="margin-top: 4rem; text-align: center;">
+        <span class="badge badge-warning" style="margin-bottom: 0.5rem;">DANH MỤC 10 NGÀNH ĐÀO TẠO CHUẨN ỨNG DỤNG</span>
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.4rem;">
+          Tư Vấn Chuyên Sâu 10 Ngành Tại Đại Học Nguyễn Trãi
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 620px; margin: 0 auto;">
+          Nhấp vào ngành bạn đang theo học hoặc quan tâm để nhận hướng dẫn chi tiết về lộ trình học tập, đề cương môn học và kỹ năng nghề nghiệp thực tế.
+        </p>
+
+        <div class="majors-grid">
+          <!-- 1. Thiết kế đồ họa -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 01</span>
+                <div class="major-icon"><i class="fas fa-palette"></i></div>
+              </div>
+              <h3 class="major-card-title">Thiết Kế Đồ Họa</h3>
+              <p class="major-card-desc">Mỹ thuật ứng dụng, 2D/3D Graphic, UI/UX, Typography, Nhận diện thương hiệu & Xưởng thực hành sáng tạo.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 2. Ngôn ngữ Nhật -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 02</span>
+                <div class="major-icon"><i class="fas fa-torii-gate"></i></div>
+              </div>
+              <h3 class="major-card-title">Ngôn Ngữ Nhật</h3>
+              <p class="major-card-desc">Chuẩn JLPT N3-N1, Tiếng Nhật thương mại, Biên - Phiên dịch, Văn hóa doanh nghiệp & Cơ hội làm việc tại Nhật Bản.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 3. Ngôn ngữ Hàn Quốc -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 03</span>
+                <div class="major-icon"><i class="fas fa-globe-asia"></i></div>
+              </div>
+              <h3 class="major-card-title">Ngôn Ngữ Hàn Quốc</h3>
+              <p class="major-card-desc">Chuẩn TOPIK 3-6, Biên phiên dịch, Thương mại Hàn Quốc, Làm việc tại các tập đoàn FDI (Samsung, LG, CJ).</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 4. Quốc tế học -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 04</span>
+                <div class="major-icon"><i class="fas fa-earth-americas"></i></div>
+              </div>
+              <h3 class="major-card-title">Quốc Tế Học</h3>
+              <p class="major-card-desc">Ngoại giao, Quan hệ quốc tế, Kinh tế đối ngoại, Tổ chức phi chính phủ (NGO) & Kỹ năng đàm phán toàn cầu.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 5. Quan hệ công chúng -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 05</span>
+                <div class="major-icon"><i class="fas fa-bullhorn"></i></div>
+              </div>
+              <h3 class="major-card-title">Quan Hệ Công Chúng (PR)</h3>
+              <p class="major-card-desc">Quản trị truyền thông, Tổ chức sự kiện chuyên nghiệp, Báo chí đa phương tiện & Xử lý khủng hoảng PR.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 6. Quản trị kinh doanh -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 06</span>
+                <div class="major-icon"><i class="fas fa-briefcase"></i></div>
+              </div>
+              <h3 class="major-card-title">Quản Trị Kinh Doanh</h3>
+              <p class="major-card-desc">Quản trị doanh nghiệp 4.0, Digital Marketing, Vườn ươm khởi nghiệp Startup & Quản trị chuỗi cung ứng.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 7. Tài chính – Ngân hàng -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 07</span>
+                <div class="major-icon"><i class="fas fa-chart-line"></i></div>
+              </div>
+              <h3 class="major-card-title">Tài Chính – Ngân Hàng</h3>
+              <p class="major-card-desc">Tài chính doanh nghiệp, Ngân hàng số (Digital Banking), Công nghệ Fintech & Đầu tư chứng khoán thông minh.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 8. Kế toán -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 08</span>
+                <div class="major-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+              </div>
+              <h3 class="major-card-title">Kế Toán</h3>
+              <p class="major-card-desc">Kế toán tài chính & Quản trị, Thuế doanh nghiệp, Kiểm toán, Chuẩn mực quốc tế IFRS & Phần mềm MISA/SAP.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 9. Công nghệ thông tin -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 09</span>
+                <div class="major-icon"><i class="fas fa-laptop-code"></i></div>
+              </div>
+              <h3 class="major-card-title">Công Nghệ Thông Tin</h3>
+              <p class="major-card-desc">Kỹ thuật phần mềm, Trí tuệ nhân tạo (AI & Data Science), Lập trình Web/Mobile & An toàn thông tin mạng.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+          <!-- 10. Thiết kế nội thất -->
+          <div class="major-card" onclick="window.location.href='/chat'">
+            <div>
+              <div class="major-card-header">
+                <span class="major-num">NGÀNH 10</span>
+                <div class="major-icon"><i class="fas fa-couch"></i></div>
+              </div>
+              <h3 class="major-card-title">Thiết Kế Nội Thất</h3>
+              <p class="major-card-desc">Kiến trúc nội thất, Vật liệu & Ánh sáng công trình, Phần mềm kỹ thuật AutoCAD, 3ds Max, SketchUp, Revit.</p>
+            </div>
+            <div style="margin-top: 0.85rem; font-size: 0.8rem; font-weight: 600; display: flex; align-items: center; gap: 0.35rem;">
+              <span>Hỏi đáp AI</span> <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= FEATURES GRID ================= -->
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">Cố Vấn Học Thuật AI</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">
+            Giải đáp kiến thức 10 ngành đào tạo, hỗ trợ viết code, giải bài toán kinh tế, dịch thuật ngoại ngữ và trả lời câu hỏi tri thức tổng quát.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-compass"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">Lộ Trình Học Tập Cá Nhân Hóa</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">
+            Tự động lập kế hoạch ôn thi chi tiết từng ngày, phân bổ thời gian học hợp lý và theo dõi tiến độ hoàn thành mục tiêu học phần.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">Phân Tích & Tóm Tắt Tài Liệu</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">
+            Đính kèm slide bài giảng, đề cương ôn tập dạng PDF/Word để AI trích xuất ý chính và sinh bộ câu hỏi tự ôn luyện thông minh.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.4rem;">Định Hướng Kỹ Năng Nghề Nghiệp</h3>
+          <p style="color: var(--text-muted); font-size: 0.88rem;">
+            Cung cấp thông tin chuẩn đầu ra nghề nghiệp, bộ kỹ năng chuyên ngành cần thiết và đồ án thực chiến theo chuẩn doanh nghiệp.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CTA BANNER ================= -->
+  <section style="padding: 1.5rem 0 4rem;">
+    <div class="container">
+      <div class="card" style="padding: 2.5rem 2rem; text-align: center; border-radius: var(--radius-lg);">
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.6rem;">
+          Sẵn Sàng Bứt Phá Kết Quả Học Tập Cùng AI NTU?
+        </h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 580px; margin: 0 auto 1.5rem;">
+          Trải nghiệm ngay Trợ lý AI Sinh viên để nhận cố vấn học thuật, giải bài tập và thiết lập lộ trình học tập 24/7.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap;">
+          <a href="/register" class="btn btn-primary btn-lg"><i class="fas fa-user-plus"></i> Đăng Ký Tài Khoản</a>
+          <a href="/chat" class="btn btn-secondary btn-lg"><i class="fas fa-robot"></i> Trò Chuyện Trực Tiếp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer style="background: var(--bg-surface); border-top: 1px solid var(--border-color); padding: 2rem 0; margin-top: auto;">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
+      <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <div class="brand-icon" style="width: 32px; height: 32px; font-size: 1rem;">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div>
+          <div style="font-weight: 700; font-size: 0.95rem;">Trường Đại Học Nguyễn Trãi (NTU)</div>
+          <div style="font-size: 0.78rem; color: var(--text-dim);">Địa chỉ: 28A Lê Trọng Tấn, Hà Đông, Hà Nội</div>
+        </div>
+      </div>
+      <p style="color: var(--text-dim); font-size: 0.8rem;">
+        &copy; 2026 Trường Đại Học Nguyễn Trãi • Nền Tảng Trợ Lý AI Đồng Hành & Tư Vấn Học Tập Sinh Viên.
+      </p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bảng Điều Khiển Quản Trị - Trường Đại Học Nguyễn Trãi (NTU)</title>
+  <meta name="description" content="Bảng điều khiển quản trị hệ thống AI NTU - Quản lý sinh viên, học phần và tài liệu.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- ADMIN NAVBAR (tách riêng, không có link user) -->
+  <nav class="navbar">
+    <a href="/admin/dashboard" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <span>Quản Trị <span style="font-weight: 800;">ĐH Nguyễn Trãi</span></span>
+      <span class="brand-badge">ADMIN</span>
+    </a>
+
+    <div class="nav-actions">
+      <button class="btn btn-icon theme-toggle-btn" title="Đổi giao diện Sáng / Tối"><i class="fas fa-sun"></i></button>
+      <div id="admin-navbar-profile"></div>
+    </div>
+  </nav>
+
+  <!-- ADMIN LAYOUT -->
+  <div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <ul class="admin-nav">
+        <li class="admin-nav-item active">
+          <a href="/admin/dashboard"><i class="fas fa-chart-pie"></i> <span>Tổng Quan NTU</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="/admin/users"><i class="fas fa-users"></i> <span>Sinh Viên &amp; Người Dùng</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="/admin/courses"><i class="fas fa-book"></i> <span>10 Ngành &amp; Học Phần</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="/admin/documents"><i class="fas fa-file-alt"></i> <span>Kho Tài Liệu Học Tập</span></a>
+        </li>
+        <li class="admin-nav-item" style="margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+          <a href="/admin/profile"><i class="fas fa-user-shield"></i> <span>Hồ Sơ Quản Trị</span></a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Tổng Quan Hệ Thống AI - ĐH Nguyễn Trãi</h1>
+          <p class="admin-page-subtitle">Giám sát hoạt động tư vấn 10 ngành đào tạo, thống kê sinh viên và lưu lượng hỏi đáp AI</p>
+        </div>
+      </div>
+
+      <!-- KPI Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-label">Tổng Sinh Viên</span>
+            <span class="stat-value" id="stat-total-users">0</span>
+          </div>
+          <div class="stat-icon-wrap"><i class="fas fa-user-graduate"></i></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-label">Tin Nhắn Hỏi Đáp AI</span>
+            <span class="stat-value" id="stat-total-messages">0</span>
+          </div>
+          <div class="stat-icon-wrap"><i class="fas fa-comments"></i></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-label">Học Phần 10 Ngành</span>
+            <span class="stat-value" id="stat-total-courses">0</span>
+          </div>
+          <div class="stat-icon-wrap"><i class="fas fa-book-open"></i></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-info">
+            <span class="stat-label">Lộ Trình Học Đã Tạo</span>
+            <span class="stat-value" id="stat-total-plans">0</span>
+          </div>
+          <div class="stat-icon-wrap"><i class="fas fa-calendar-check"></i></div>
+        </div>
+      </div>
+
+      <!-- Recent Users Table -->
+      <div class="admin-table-container">
+        <div class="admin-table-header">
+          <h3 class="admin-table-title">
+            <i class="fas fa-user-clock"></i> Sinh Viên Tham Gia Mới Nhất
+          </h3>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Sinh Viên</th>
+              <th>MSSV</th>
+              <th>Chuyên Ngành NTU</th>
+              <th>Chuỗi Ngày (Streak)</th>
+              <th>Ngày Đăng Ký</th>
+            </tr>
+          </thead>
+          <tbody id="recent-users-tbody">
+            <tr>
+              <td colspan="5" style="text-align: center; padding: 2rem; color: var(--text-dim);">
+                <i class="fas fa-spinner fa-spin"></i> Đang tải dữ liệu sinh viên NTU...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/admin.js"></script>
+
+</body>
+</html>

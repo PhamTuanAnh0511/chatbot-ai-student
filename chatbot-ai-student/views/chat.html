@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot AI - Trường Đại Học Nguyễn Trãi (NTU)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/chat.css">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div style="display: flex; align-items: center; gap: 0.85rem;">
+      <button class="toggle-sidebar-btn" id="toggle-sidebar-btn" title="Ẩn/Hiện Danh Sách Hội Thoại">
+        <i class="fas fa-bars"></i>
+      </button>
+      <a href="/" class="nav-brand">
+        <div class="brand-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <span>Đại Học <span style="font-weight: 800;">Nguyễn Trãi</span></span>
+      </a>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="/chat" class="nav-link active"><i class="fas fa-robot"></i> Chatbot AI NTU</a></li>
+      <li><a href="/study-plan" class="nav-link"><i class="fas fa-calendar-check"></i> Lộ Trình Học Tập</a></li>
+      <li><a href="/profile" class="nav-link"><i class="fas fa-user"></i> Hồ Sơ Sinh Viên</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="btn btn-icon theme-toggle-btn" title="Đổi giao diện Sáng / Tối">
+        <i class="fas fa-sun"></i>
+      </button>
+      <div id="navbar-auth-actions"></div>
+    </div>
+  </nav>
+
+  <!-- ================= CHAT APP CONTAINER ================= -->
+  <div class="chat-app-container">
+
+    <!-- SIDEBAR: LỊCH SỬ ĐOẠN CHAT -->
+    <aside class="chat-sidebar" id="chat-sidebar">
+      <div class="sidebar-header">
+        <button class="new-chat-btn" id="new-chat-btn">
+          <i class="fas fa-plus"></i> Cuộc Trò Chuyện Mới
+        </button>
+        <div class="sidebar-search">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Tìm kiếm đoạn chat..." id="search-conv-input">
+        </div>
+      </div>
+
+      <div class="conversation-list" id="conversation-list">
+        <!-- Rendered by JS -->
+      </div>
+    </aside>
+
+    <!-- MAIN CHAT WORKSPACE -->
+    <main class="chat-main">
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <div style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e;"></div>
+            <h3 class="active-conv-title" id="active-conv-title">Cuộc trò chuyện mới</h3>
+          </div>
+          <span class="badge badge-primary" style="font-size: 0.72rem; padding: 2px 7px;">NTU AI ONLINE</span>
+        </div>
+
+        <div class="chat-header-actions">
+          <button class="btn btn-secondary btn-sm" id="export-chat-btn" title="Xuất toàn bộ nhật ký chat ra file text">
+            <i class="fas fa-download"></i> <span class="d-none-sm">Xuất Nhật Ký</span>
+          </button>
+          <button class="btn btn-secondary btn-sm" id="clear-chat-btn" title="Làm mới đoạn chat này">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Messages Stream Area -->
+      <div class="chat-messages" id="chat-messages">
+        <!-- Messages rendered by JS -->
+      </div>
+
+      <!-- Quick Prompt Suggestions Bar -->
+      <div class="quick-prompts-bar" id="quick-prompts-bar">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Chat Input Area -->
+      <div class="chat-input-area">
+        <div id="attachment-preview-bar" class="attachment-preview-bar"></div>
+
+        <form id="chat-form" class="chat-input-box">
+          <textarea 
+            id="chat-input" 
+            class="chat-textarea" 
+            rows="1" 
+            placeholder="Hỏi AI bất kỳ thắc mắc về 10 ngành đào tạo, bài tập, đề cương hoặc dán tài liệu cần phân tích..."></textarea>
+
+          <div class="chat-input-toolbar">
+            <div class="toolbar-left">
+              <label for="chat-file-input" class="tool-btn" title="Đính kèm tài liệu (PDF, Word, TXT, Ảnh)" style="margin: 0; cursor: pointer;">
+                <i class="fas fa-paperclip"></i>
+              </label>
+              <input type="file" id="chat-file-input" style="display: none;" accept=".pdf,.doc,.docx,.txt,.md,.png,.jpg,.jpeg">
+
+              <button type="button" class="tool-btn" id="voice-input-btn" title="Nhập liệu bằng giọng nói tiếng Việt">
+                <i class="fas fa-microphone"></i>
+              </button>
+            </div>
+
+            <button type="submit" class="send-btn" id="send-btn" title="Gửi câu hỏi">
+              <i class="fas fa-arrow-up"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+</html>

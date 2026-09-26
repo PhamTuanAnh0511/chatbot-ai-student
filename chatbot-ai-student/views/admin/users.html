@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Sinh Viên - Đại Học Nguyễn Trãi (NTU)</title>
+  <meta name="description" content="Quản lý tài khoản sinh viên 10 ngành đào tạo NTU.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+
+  <!-- ADMIN NAVBAR -->
+  <nav class="navbar">
+    <a href="/admin/dashboard" class="nav-brand">
+      <div class="brand-icon">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <span>Quản Trị <span style="font-weight: 800;">ĐH Nguyễn Trãi</span></span>
+      <span class="brand-badge">ADMIN</span>
+    </a>
+
+    <div class="nav-actions">
+      <button class="btn btn-icon theme-toggle-btn" title="Đổi giao diện Sáng / Tối"><i class="fas fa-sun"></i></button>
+      <div id="admin-navbar-profile"></div>
+    </div>
+  </nav>
+
+  <!-- ADMIN LAYOUT -->
+  <div class="admin-layout">
+    <!-- SIDEBAR -->
+    <aside class="admin-sidebar">
+      <ul class="admin-nav">
+        <li class="admin-nav-item">
+          <a href="/admin/dashboard"><i class="fas fa-chart-pie"></i> <span>Tổng Quan NTU</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="/admin/users"><i class="fas fa-users"></i> <span>Sinh Viên &amp; Người Dùng</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="/admin/courses"><i class="fas fa-book"></i> <span>10 Ngành &amp; Học Phần</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="/admin/documents"><i class="fas fa-file-alt"></i> <span>Kho Tài Liệu Học Tập</span></a>
+        </li>
+        <li class="admin-nav-item" style="margin-top: auto; border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+          <a href="/admin/profile"><i class="fas fa-user-shield"></i> <span>Hồ Sơ Quản Trị</span></a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="admin-content">
+      <div class="admin-page-header">
+        <div>
+          <h1 class="admin-page-title">Quản Lý Danh Sách Sinh Viên NTU</h1>
+          <p class="admin-page-subtitle">Danh sách tài khoản sinh viên 10 ngành đào tạo và quyền truy cập trong hệ thống</p>
+        </div>
+      </div>
+
+      <div class="admin-table-container">
+        <div class="admin-table-header">
+          <div style="position: relative; width: 340px;">
+            <input type="text" id="search-user-input" class="form-control" placeholder="Tìm theo tên, email, MSSV..." oninput="loadAdminUsers(1, this.value)">
+          </div>
+        </div>
+
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Sinh Viên</th>
+              <th>Email</th>
+              <th>Vai Trò (Role)</th>
+              <th>Chuyên Ngành NTU</th>
+              <th>Trạng Thái</th>
+              <th>Thao Tác</th>
+            </tr>
+          </thead>
+          <tbody id="users-table-body">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
